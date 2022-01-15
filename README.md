@@ -26,8 +26,8 @@ Returns a scatterplot based on the data frame and two numerical feature names pa
 
 Our package will build onto the existing features of 'Altair' using the magma color scheme. It serves as an automated plotter and is a higher level implementation of it. Essentially it circumvents the need to code every single detail and allows the user to focus on the output. We came across two packages that have a similar line of thought:
 
-https://pypi.org/project/deneb/ (Altair) - uses the same base as this package
-https://pypi.org/project/spartan-viz/ (Matplotlib) - same philosophy as this package: focus on good use of color
+[deneb](https://pypi.org/project/deneb/) (Altair) - uses the same base as this package
+[spartan-viz](https://pypi.org/project/spartan-viz/) (Matplotlib) - same philosophy as this package: focus on good use of color
 
 ## Installation
 
