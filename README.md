@@ -1,6 +1,6 @@
 # magmaviz
 
-Exploratory Data Analysis is one of the key steps in a machine learning project. This package aims to make this process easy by providing python functions based on the Altair package to plot four common types of plots with the 'magma' color theme. To maximize interpretability, the plots have defined color schemes (discrete, diverging, sequential) based on the kind of data they show.
+Exploratory Data Analysis is one of the key steps in a machine learning project. This package aims to make this process easy by providing python functions based on the 'Altair' package to plot four common types of plots with the magma color scheme. To maximize interpretability, the plots have defined color schemes (discrete, diverging, sequential) based on the kind of data they show.
 
 ## Functions
 
@@ -22,6 +22,13 @@ Returns a histogram based on the data frame and a categorical feature to plot on
 
 Returns a scatterplot based on the data frame and two numerical feature names passed as the required inputs. An auxiliary input provides the flexibility to color-code the data points based on a categorical feature.
 
+### Fit within the Python ecosystem
+
+Our package will build onto the existing features of 'Altair' using the magma color scheme. It serves as an automated plotter and is a higher level implementation of it. Essentially it circumvents the need to code every single detail and allows the user to focus on the output. We came across two packages that have a similar line of thought:
+
+https://pypi.org/project/deneb/ (Altair) - uses the same base as this package
+https://pypi.org/project/spartan-viz/ (Matplotlib) - same philosophy as this package: focus on good use of color
+
 ## Installation
 
 ```bash
@@ -30,7 +37,7 @@ $ pip install magmaviz
 
 ## Usage
 
-- TODO
+- This section will be updated as progress is made.
 
 ## Contributing
 
