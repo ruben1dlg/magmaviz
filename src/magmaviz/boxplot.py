@@ -1,4 +1,4 @@
-def color_boxplot(df, x, y, facet=False):
+def boxplot(df, x, y, facet=False):
     """Plot a boxplot with the magma color scheme and an option to facet.
 
     Parameters
