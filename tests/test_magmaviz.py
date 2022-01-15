@@ -1,0 +1,1 @@
+from magmaviz import magmaviz
