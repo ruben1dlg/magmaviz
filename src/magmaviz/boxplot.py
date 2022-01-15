@@ -6,11 +6,11 @@ def color_boxplot(df, x, y, facet=False):
     df : dataframe
         Dataframe containing the variables for plotting
     x : string
-        Column-name of the numerical variable to view the distribution of
+        Column name of the numerical variable to view the distribution of
     y : list
         Column names of the categorical variables to assign boxes to
     facet : boolean
-        Determines whether seprate graphs will be created for each category
+        Determines whether separate graphs will be created for each category
 
     Returns
     -------
@@ -20,5 +20,5 @@ def color_boxplot(df, x, y, facet=False):
     Examples
     --------
     >>> from magmaviz.magmaviz import boxplot
-    >>> plot_words(mtcars, horsepower, cars, facet=True)
+    >>> boxplot(mtcars, horsepower, cars, facet=True)
     """
