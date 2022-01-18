@@ -27,20 +27,35 @@ def test_boxplot():
             "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
         )
 
+    # checking if x is a column name in the dataframe
+    assert "Miles_per_gallon" in list(
+        df.columns
+    ), "This column specified for 'x' does not exist in the dataframe."
+    # checking if y is a column name in the dataframe
+    assert "Country_of_Origin" in list(
+        df.columns
+    ), "This column specified for 'y' does not exist in the dataframe."
 
-    #checking if x is a column name in the dataframe
-    assert "Miles_per_gallon" in list(df.columns), "This column specified for 'x' does not exist in the dataframe."
-    #checking if y is a column name in the dataframe
-    assert "Country_of_Origin" in list(df.columns), "This column specified for 'x' does not exist in the dataframe."
-    
+    # Output tests
+    # checking if facetting is occurring correctly using type
+    assert (
+        type(boxplot(df, "Miles_per_Gallon", "Country_of_Origin", facet=True))
+        == alt.vegalite.v4.api.FacetChart
+    ), "The output should be a faceted chart type"
+    assert (
+        type(boxplot(df, "Miles_per_Gallon", "Country_of_Origin", facet=False))
+        == alt.vegalite.v4.api.Chart
+    ), "The output should be an altair chart type"
 
-    #Output tests
-    #checking if facetting is occurring correctly using type
-    assert type(boxplot(df, 'Miles_per_Gallon', 'Country_of_Origin', facet=True))==alt.vegalite.v4.api.FacetChart, "The output should be a faceted chart type"
-    assert type(boxplot(df, 'Miles_per_Gallon', 'Country_of_Origin', facet=False))==alt.vegalite.v4.api.Chart, "The output should be an altair chart type"
-
-    assert boxplot(df, 'Miles_per_Gallon', 'Country_of_Origin, facet=False).encoding.x.shorthand == x, 'x_axis should be mapped to the x axis'
-    assert boxplot(df, 'Miles_per_Gallon', 'Country_of_Origin, facet=False).encoding.y.shorthand == x, 'x_axis should be mapped to the x axis'
-
-
-
+    assert (
+        boxplot(
+            df, "Miles_per_Gallon", "Country_of_Origin", facet=False
+        ).encoding.x.shorthand
+        == "Miles_per_Gallon"
+    ), "x should be mapped to the x axis"
+    assert (
+        boxplot(
+            df, "Miles_per_Gallon", "Country_of_Origin", facet=False
+        ).encoding.y.shorthand
+        == "Country_of_Origin"
+    ), "y should be mapped to the x axis"
