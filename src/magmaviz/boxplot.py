@@ -20,5 +20,21 @@ def boxplot(df, x, y, facet=False):
     Examples
     --------
     >>> from magmaviz.magmaviz import boxplot
-    >>> boxplot(mtcars, horsepower, cars, facet=True)
+    >>> boxplot(cars, "Miles_per_Gallon", "Origin", facet=True)
     """
+    # crete the plot object
+    plot = (
+        alt.Chart(df)
+        .mark_boxplot()
+        .encode(
+            x=alt.X(x, title=x),
+            y=alt.Y(y, title=y),
+            color=alt.Color(y, scale=alt.Scale(scheme="magma")),
+        )
+    )
+
+    # facet if needed
+    if facet == True:
+        return plot.facet(row=y)
+    else:
+        return plot
