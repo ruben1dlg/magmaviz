@@ -42,6 +42,15 @@ def boxplot(df, x, y, facet=False):
             "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
         )
 
+    # checking if x is a column name in the dataframe
+    assert x in list(
+        df.columns
+    ), "This column specified for 'x' does not exist in the dataframe."
+    # checking if y is a column name in the dataframe
+    assert y in list(
+        df.columns
+    ), "This column specified for 'y' does not exist in the dataframe."
+
     # creating titles
     x_title = re.sub(r"[_.,-]", " ", x)
 
