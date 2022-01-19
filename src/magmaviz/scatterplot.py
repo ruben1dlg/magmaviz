@@ -70,3 +70,13 @@ def scatterplot(df, x, y, c=""):
     
     # check if color column is numeric or not
     assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
+
+    if c == "":
+        plot = alt.Chart(
+            data=df
+        ).mark_point(
+            color="purple"
+        ).encode(
+            alt.X(x, title=f"{x}"),
+            alt.Y(y, title=f"{y}")
+        )
