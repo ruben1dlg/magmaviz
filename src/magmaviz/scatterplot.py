@@ -57,9 +57,10 @@ def scatterplot(df, x, y, c=""):
     ), "The column specified for 'y' axis does not exist in the dataframe."
 
     # check if column name assigned to color is present in the dataframe
-    assert c in list(
-        df.columns
-    ), "The column specified for 'color' does not exist in the dataframe."
+    if c != "":
+        assert c in list(
+            df.columns
+        ), "The column specified for 'color' does not exist in the dataframe."
 
     # check if x-axis column is numeric or not
     assert is_numeric_dtype(df[x]), "The column assigned to 'x' axis is not of type numeric."
@@ -68,16 +69,21 @@ def scatterplot(df, x, y, c=""):
     assert is_numeric_dtype(df[y]), "The column assigned to 'y' axis is not of type numeric."
 
     # check if color column is numeric or not
-    assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
+    if c != "":
+        assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
 
-    # Added proper titles to axes and legend
+    # Added proper titles to axes, legend and plot
     xtitle = re.sub(r"[_.,-]", " ", x)
     ytitle = re.sub(r"[_.,-]", " ", y)
     ctitle = re.sub(r"[_.,-]", " ", c)
+    if c == "":
+        t = f"{xtitle.title()} vs {ytitle.title()}"
+    else:
+        t = f"{xtitle.title()} vs {ytitle.title()} by {ctitle.title()}"
 
     if c == "":
         plot = alt.Chart(
-            data=df
+            data=df, title=t
         ).mark_point(
             color="purple"
         ).encode(
@@ -86,7 +92,7 @@ def scatterplot(df, x, y, c=""):
         )
     else:
         plot = alt.Chart(
-            data=df
+            data=df, title=t
         ).mark_point(
         ).encode(
             alt.X(x, title=xtitle.capitalize()),
