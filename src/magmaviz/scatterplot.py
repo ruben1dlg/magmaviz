@@ -31,6 +31,10 @@ def scatterplot(df, x, y, c=""):
     >>> scatterplot(iris, "Sepal.Length", "Sepal.Width", Species)
     """
 
+    # check if the dataframe is a pandas dataframe
+    if not isinstance(df, pd.core.frame.DataFrame):
+        raise TypeError("'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe.")
+
     # check if column name for x-axis is a string
     if not isinstance(x, str):
         raise TypeError("Invalid value passed to 'x' axis: Assign column name as a 'string'.")
@@ -43,12 +47,12 @@ def scatterplot(df, x, y, c=""):
     if not isinstance(c, str):
         raise TypeError("Invalid value passed to 'color' variable: Assign column name as a 'string'.")
     
-    # check if column name assigned to x is present in the dataframe
+    # check if column name assigned to x-axis is present in the dataframe
     assert x in list(
         df.columns
     ), "The column specified for 'x' axis does not exist in the dataframe."
 
-    # check if column name assigned to y is present in the dataframe
+    # check if column name assigned to y-axis is present in the dataframe
     assert y in list(
         df.columns
     ), "The column specified for 'y' axis does not exist in the dataframe."
@@ -57,3 +61,12 @@ def scatterplot(df, x, y, c=""):
     assert c in list(
         df.columns
     ), "The column specified for 'color' does not exist in the dataframe."
+
+    # check if x-axis column is numeric or not
+    assert is_numeric_dtype(df[x]), "The column assigned to 'x' axis is not of type numeric."
+    
+    # check if y-axis column is numeric or not
+    assert is_numeric_dtype(df[y]), "The column assigned to 'y' axis is not of type numeric."
+    
+    # check if color column is numeric or not
+    assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
