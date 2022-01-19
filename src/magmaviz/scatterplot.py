@@ -2,7 +2,6 @@ import altair as alt
 import pandas as pd
 from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype
-
 import re
 
 def scatterplot(df, x, y, c=""):
@@ -71,23 +70,28 @@ def scatterplot(df, x, y, c=""):
     # check if color column is numeric or not
     assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
 
+    # Added proper titles to axes and legend
+    xtitle = re.sub(r"[_.,-]", " ", x)
+    ytitle = re.sub(r"[_.,-]", " ", y)
+    ctitle = re.sub(r"[_.,-]", " ", c)
+
     if c == "":
         plot = alt.Chart(
             data=df
         ).mark_point(
             color="purple"
         ).encode(
-            alt.X(x, title=f"{x}"),
-            alt.Y(y, title=f"{y}")
+            alt.X(x, title=xtitle.capitalize()),
+            alt.Y(y, title=ytitle.capitalize())
         )
     else:
         plot = alt.Chart(
             data=df
         ).mark_point(
         ).encode(
-            alt.X(x, title=f"{x}"),
-            alt.Y(y, title=f"{y}"),
-            alt.Color(c, title=f"{c}", scale=alt.Scale(scheme="magma"))
+            alt.X(x, title=xtitle.capitalize()),
+            alt.Y(y, title=ytitle.capitalize()),
+            alt.Color(c, title=ctitle.capitalize(), scale=alt.Scale(scheme="magma"))
         )
 
     return plot
