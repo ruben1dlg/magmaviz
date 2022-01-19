@@ -38,7 +38,7 @@ def scatterplot(df, x, y, c=""):
     # check if column name for x-axis is a string
     if not isinstance(x, str):
         raise TypeError("Invalid value passed to 'x' axis: Assign column name as a 'string'.")
-        
+
     # check if column name for y-axis is a string
     if not isinstance(y, str):
         raise TypeError("Invalid value passed to 'y' axis: Assign column name as a 'string'.")
@@ -46,7 +46,7 @@ def scatterplot(df, x, y, c=""):
     # check if column name for color is a string
     if not isinstance(c, str):
         raise TypeError("Invalid value passed to 'color' variable: Assign column name as a 'string'.")
-    
+
     # check if column name assigned to x-axis is present in the dataframe
     assert x in list(
         df.columns
@@ -56,7 +56,7 @@ def scatterplot(df, x, y, c=""):
     assert y in list(
         df.columns
     ), "The column specified for 'y' axis does not exist in the dataframe."
-    
+
     # check if column name assigned to color is present in the dataframe
     assert c in list(
         df.columns
@@ -64,10 +64,10 @@ def scatterplot(df, x, y, c=""):
 
     # check if x-axis column is numeric or not
     assert is_numeric_dtype(df[x]), "The column assigned to 'x' axis is not of type numeric."
-    
+
     # check if y-axis column is numeric or not
     assert is_numeric_dtype(df[y]), "The column assigned to 'y' axis is not of type numeric."
-    
+
     # check if color column is numeric or not
     assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
 
@@ -80,3 +80,14 @@ def scatterplot(df, x, y, c=""):
             alt.X(x, title=f"{x}"),
             alt.Y(y, title=f"{y}")
         )
+    else:
+        plot = alt.Chart(
+            data=df
+        ).mark_point(
+        ).encode(
+            alt.X(x, title=f"{x}"),
+            alt.Y(y, title=f"{y}"),
+            alt.Color(c, title=f"{c}", scale=alt.Scale(scheme="magma"))
+        )
+
+    return plot
