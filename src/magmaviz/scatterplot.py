@@ -4,7 +4,7 @@ from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype
 import re
 
-def scatterplot(df, x, y, c=""):
+def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle=""):
     """Plot a scatterplot on the dataframe with the magma color scheme.
     
     Parameters
@@ -18,6 +18,18 @@ def scatterplot(df, x, y, c=""):
     c : string
         Column-name of the categorical variable to color-code the data points
         Default value is blank
+    t : string
+        Title of the plot. Default value is blank. If not provided,
+        title will be computed based on x, y and/or c
+    xtitle : string
+             Title of the x-axis. Default value is blank. If not provided,
+             title will be proper case of the x axis column
+    ytitle : string
+             Title of the y-axis. Default value is blank. If not provided,
+             title will be proper case of the y axis column
+    ctitle : string
+             Title of the color legend. Default value is blank. If not provided,
+             title will be proper case of the color column
 
     Returns
     -------
@@ -46,6 +58,22 @@ def scatterplot(df, x, y, c=""):
     if not isinstance(c, str):
         raise TypeError("Invalid value passed to 'color' variable: Assign column name as a 'string'.")
 
+    # check if title is a string
+    if not isinstance(t, str):
+        raise TypeError("Invalid value passed to 't' variable: Assign title as a 'string'.")
+
+    # check if x-axis title is a string
+    if not isinstance(xtitle, str):
+        raise TypeError("Invalid value passed to 'xtitle' variable: Assign x-axis title as a 'string'.")
+
+    # check if y-axis title is a string
+    if not isinstance(ytitle, str):
+        raise TypeError("Invalid value passed to 'ytitle' variable: Assign y-axis title as a 'string'.")
+
+    # check if color legend title is a string
+    if not isinstance(ctitle, str):
+        raise TypeError("Invalid value passed to 'ctitle' variable: Assign color legend title as a 'string'.")
+
     # check if column name assigned to x-axis is present in the dataframe
     assert x in list(
         df.columns
@@ -68,18 +96,22 @@ def scatterplot(df, x, y, c=""):
     # check if y-axis column is numeric or not
     assert is_numeric_dtype(df[y]), "The column assigned to 'y' axis is not of type numeric."
 
-    # check if color column is numeric or not
+    # check if color column is string or not
     if c != "":
         assert is_string_dtype(df[c]), "The column assigned to 'color' is not of type string."
 
     # Added proper titles to axes, legend and plot
-    xtitle = re.sub(r"[_.,-]", " ", x)
-    ytitle = re.sub(r"[_.,-]", " ", y)
-    ctitle = re.sub(r"[_.,-]", " ", c)
-    if c == "":
-        t = f"{xtitle.title()} vs {ytitle.title()}"
-    else:
-        t = f"{xtitle.title()} vs {ytitle.title()} by {ctitle.title()}"
+    if xtitle == "":
+        xtitle = re.sub(r"[_.,-]", " ", x)
+    if ytitle == "":
+        ytitle = re.sub(r"[_.,-]", " ", y)
+    if ctitle == "":
+        ctitle = re.sub(r"[_.,-]", " ", c)
+    if t == "":
+        if c == "":
+            t = f"{xtitle.title()} vs {ytitle.title()}"
+        else:
+            t = f"{xtitle.title()} vs {ytitle.title()} by {ctitle.title()}"
 
     if c == "":
         plot = alt.Chart(
