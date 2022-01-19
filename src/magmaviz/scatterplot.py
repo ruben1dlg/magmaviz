@@ -166,7 +166,7 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
         plot = alt.Chart(
             data=df, title=t
         ).mark_point(
-            opacity=o, size=s, color="purple"
+            opacity=o, size=s, color="#721F81"
         ).encode(
             alt.X(x, title=xtitle.capitalize(), scale=alt.Scale(zero=xzero)),
             alt.Y(y, title=ytitle.capitalize(), scale=alt.Scale(zero=yzero))
