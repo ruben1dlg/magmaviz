@@ -54,7 +54,10 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
     Example
     -------
     >>> from magmaviz.magmaviz import scatterplot
-    >>> scatterplot(iris, "Sepal.Length", "Sepal.Width", Species)
+    >>> from vega_datasets import data
+    >>> scatterplot(data.iris(), "sepalLength", "sepalWidth", "species",
+                    "Iris Sepal Length vs Sepal Width across Species",
+                    1.0, 50, "Sepal Length", "Sepal Width", "", False, False, True)
     """
 
     # Basic checks to see if parameters passed to function call contain expected values
