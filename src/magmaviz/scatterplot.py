@@ -4,7 +4,7 @@ from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype
 import re
 
-def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle=""):
+def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle="", xzero=False, yzero=False):
     """Plot a scatterplot on the dataframe with the magma color scheme.
     
     Parameters
@@ -30,6 +30,12 @@ def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle=""):
     ctitle : string
              Title of the color legend. Default value is blank. If not provided,
              title will be proper case of the color column
+    xzero : boolean
+            Scale the x-axis to start from 0 by specifying True
+            Default value is set to False
+    yzero : boolean
+            Scale the y-axis to start from 0 by specifying True
+            Default value is set to False
 
     Returns
     -------
@@ -73,6 +79,14 @@ def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle=""):
     # check if color legend title is a string
     if not isinstance(ctitle, str):
         raise TypeError("Invalid value passed to 'ctitle' variable: Assign color legend title as a 'string'.")
+
+    # check if xzero is a boolean
+    if not isinstance(xzero, bool):
+        raise TypeError("Invalid value passed to 'xzero' variable: Assign boolean True to begin x axis from zero.")
+
+    # check if yzero is a boolean
+    if not isinstance(yzero, bool):
+        raise TypeError("Invalid value passed to 'ctitle' variable: Assign boolean True to begin y axis from zero.")
 
     # check if column name assigned to x-axis is present in the dataframe
     assert x in list(
@@ -119,16 +133,16 @@ def scatterplot(df, x, y, c="", t="", xtitle="", ytitle="", ctitle=""):
         ).mark_point(
             color="purple"
         ).encode(
-            alt.X(x, title=xtitle.capitalize()),
-            alt.Y(y, title=ytitle.capitalize())
+            alt.X(x, title=xtitle.capitalize(), scale=alt.Scale(zero=xzero)),
+            alt.Y(y, title=ytitle.capitalize(), scale=alt.Scale(zero=yzero))
         )
     else:
         plot = alt.Chart(
             data=df, title=t
         ).mark_point(
         ).encode(
-            alt.X(x, title=xtitle.capitalize()),
-            alt.Y(y, title=ytitle.capitalize()),
+            alt.X(x, title=xtitle.capitalize(), scale=alt.Scale(zero=xzero)),
+            alt.Y(y, title=ytitle.capitalize(), scale=alt.Scale(zero=yzero)),
             alt.Color(c, title=ctitle.capitalize(), scale=alt.Scale(scheme="magma"))
         )
 
