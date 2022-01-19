@@ -42,3 +42,18 @@ def scatterplot(df, x, y, c=""):
     # check if column name for color is a string
     if not isinstance(c, str):
         raise TypeError("Invalid value passed to 'color' variable: Assign column name as a 'string'.")
+    
+    # check if column name assigned to x is present in the dataframe
+    assert x in list(
+        df.columns
+    ), "The column specified for 'x' axis does not exist in the dataframe."
+
+    # check if column name assigned to y is present in the dataframe
+    assert y in list(
+        df.columns
+    ), "The column specified for 'y' axis does not exist in the dataframe."
+    
+    # check if column name assigned to color is present in the dataframe
+    assert c in list(
+        df.columns
+    ), "The column specified for 'color' does not exist in the dataframe."
