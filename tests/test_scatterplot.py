@@ -18,3 +18,8 @@ sample_data = pd.DataFrame({
     })
 
 scatter = scatterplot(sample_data, "year", "no_of_cars", "brand")
+
+
+def test_scatterplot():
+    assert scatter.encoding.x.field == 'year', 'x_axis should be mapped to the x axis'
+    assert scatter.encoding.y.field == 'no_of_cars', 'y_axis should be mapped to the y axis'
