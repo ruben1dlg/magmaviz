@@ -1,4 +1,7 @@
 import altair as alt
+import pandas as pd
+import numpy as np
+from vega_datasets import data
 import re
 
 
@@ -71,5 +74,6 @@ def boxplot(df, x, y, facet=False):
 
     if facet == True:
         return plot.facet(row=y)
+
     else:
         return plot
