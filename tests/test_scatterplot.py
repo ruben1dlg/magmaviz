@@ -18,8 +18,11 @@ sample_data = pd.DataFrame({
     })
 
 scatter = scatterplot(sample_data, "year", "no_of_cars", "brand")
-
+scatter
 
 def test_scatterplot():
-    assert scatter.encoding.x.field == 'year', 'x_axis should be mapped to the x axis'
-    assert scatter.encoding.y.field == 'no_of_cars', 'y_axis should be mapped to the y axis'
+    assert scatter.encoding.x.title == 'Year', 'x should be mapped to the x-axis'
+    assert scatter.encoding.y.title == 'No of cars', 'y should be mapped to the y-axis'
+    assert scatter.mark == 'point', 'mark should be a point'
+    assert scatter.encoding.x.scale.zero == False, 'x-axis should not start at 0'
+    assert scatter.encoding.y.scale.zero == False, 'y-axis should not start at 0'
