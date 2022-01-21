@@ -27,9 +27,8 @@ def toy_df():
     return df
 
 
-def test_boxplot():
+def test_boxplot_input():
 
-    # create dataframe for testing
     df = toy_df()
 
     # input tests
@@ -48,6 +47,11 @@ def test_boxplot():
             "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
         )
 
+
+def test_boxplot_columns():
+
+    df = toy_df()
+
     # checking if x is a column name in the dataframe
     assert "Miles_per_gallon" in list(
         df.columns
@@ -56,6 +60,11 @@ def test_boxplot():
     assert "Country_of_origin" in list(
         df.columns
     ), "This column specified for 'y' does not exist in the dataframe."
+
+
+def test_boxplot_output_type():
+
+    df = toy_df()
 
     # Output tests
     # checking if facetting is occurring correctly using type
@@ -68,15 +77,20 @@ def test_boxplot():
         == alt.vegalite.v4.api.Chart
     ), "The output should be an altair chart type"
 
+
+def test_boxplot_axis_mapping():
+
+    df = toy_df()
+
     assert (
         boxplot(
-            df, "Miles_per_Gallon", "Country_of_origin", facet=False
+            df, "Miles_per_gallon", "Country_of_origin", facet=False
         ).encoding.x.shorthand
         == "Miles_per_gallon"
-    ), "x should be mapped to the x axis"
+    ), "x column should be mapped to the x axis"
     assert (
         boxplot(
-            df, "Miles_per_Gallon", "Country_of_origin", facet=False
+            df, "Miles_per_gallon", "Country_of_origin", facet=False
         ).encoding.y.shorthand
         == "Country_of_origin"
-    ), "y should be mapped to the x axis"
+    ), "y column should be mapped to the y axis"
