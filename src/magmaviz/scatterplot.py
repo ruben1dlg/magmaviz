@@ -44,7 +44,7 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
             Default value is set to False
     shapes : boolean
              Assigns the color column to shapes attribute of the plot if True
-             Default value is set to False
+             Default value is set to True
 
     Returns
     -------
