@@ -23,6 +23,8 @@ scatter
 def test_scatterplot():
     assert scatter.encoding.x.title == 'Year', 'x should be mapped to the x-axis'
     assert scatter.encoding.y.title == 'No of cars', 'y should be mapped to the y-axis'
-    assert scatter.mark == 'point', 'mark should be a point'
+    assert scatter.mark.type == 'point', 'mark type should be a point'
+    assert scatter.mark.opacity == 0.5, 'mark opacity should be 0.5'
+    assert scatter.mark.size == 50, 'mark size should be 50'
     assert scatter.encoding.x.scale.zero == False, 'x-axis should not start at 0'
     assert scatter.encoding.y.scale.zero == False, 'y-axis should not start at 0'
