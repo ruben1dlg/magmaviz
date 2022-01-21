@@ -20,11 +20,37 @@ sample_data = pd.DataFrame({
 scatter = scatterplot(sample_data, "year", "no_of_cars", "brand")
 scatter
 
+
 def test_scatterplot():
-    assert scatter.encoding.x.title == 'Year', 'x should be mapped to the x-axis'
-    assert scatter.encoding.y.title == 'No of cars', 'y should be mapped to the y-axis'
+    # check if the dataframe is a pandas dataframe
+    if not isinstance(sample_data, pd.core.frame.DataFrame):
+        raise TypeError(
+            "sample_data should be of a pandas dataframe of type: 'pandas.core.frame.DataFrame'"
+        )
+    
+    # check if the x column is mapped to x-axis
+    assert scatter.encoding.x.shorthand == 'year', 'x should be mapped to the x-axis'
+
+    # check if the y column is mapped to y-axis
+    assert scatter.encoding.y.shorthand == 'no_of_cars', 'y should be mapped to the y-axis'
+
+    # check if the color scheme is set to magma
+    assert scatter.encoding.color.scale.scheme == 'magma', 'color scale scheme should be magma'
+
+    # check if the mark type is point
     assert scatter.mark.type == 'point', 'mark type should be a point'
+
+    # check if the mark opacity is 0.5
     assert scatter.mark.opacity == 0.5, 'mark opacity should be 0.5'
+
+    # check if the mark size is 50
     assert scatter.mark.size == 50, 'mark size should be 50'
+
+    # check if the x axis does not start from zero
     assert scatter.encoding.x.scale.zero == False, 'x-axis should not start at 0'
+
+    # check if the y axis does not start from zero
     assert scatter.encoding.y.scale.zero == False, 'y-axis should not start at 0'
+
+    # check if the title is correctly updated based on field names
+    assert scatter.title == 'Year vs No Of Cars by Brand', 'title should be "Year vs No of Cars by Brand"'
