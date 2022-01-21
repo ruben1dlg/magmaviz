@@ -3,20 +3,41 @@ import altair as alt
 import pandas as pd
 import numpy as np
 from vega_datasets import data
+import re
+
+
+def toy_df():
+    Miles_per_gallon = [18.0, 15.0, 18.0, 16.0, 17.0, 15.0, 14.0, 14.0, 14.0, 15.0]
+    Country_of_origin = [
+        "USA",
+        "Europe",
+        "Europe",
+        "Europe",
+        "Japan",
+        "Japan",
+        "Japan",
+        "USA",
+        "USA",
+        "Europe",
+    ]
+
+    df = pd.DataFrame(zip(Miles_per_gallon, Country_of_origin))
+    df.columns = ["Miles_per_gallon", "Country_of_origin"]
+
+    return df
 
 
 def test_boxplot():
 
     # create dataframe for testing
-    df = pd.DataFrame(zip(Miles_per_gallon, Country_of_Origin))
-    df.columns = ["Miles_per_gallon", "Country_of_Origin"]
+    df = toy_df()
 
     # input tests
     # checking that type of column name for x is a string
     if not isinstance("Miles_per_gallon", str):
         raise TypeError("'x' should be of type 'str'.")
     # checking that type of column name for y is a string
-    if not isinstance("Country_of_Origin", str):
+    if not isinstance("Country_of_origin", str):
         raise TypeError("'y' should be of type 'str'.")
     # checking that type for facet is a boolean
     if not isinstance(True, bool):
@@ -32,30 +53,30 @@ def test_boxplot():
         df.columns
     ), "This column specified for 'x' does not exist in the dataframe."
     # checking if y is a column name in the dataframe
-    assert "Country_of_Origin" in list(
+    assert "Country_of_origin" in list(
         df.columns
     ), "This column specified for 'y' does not exist in the dataframe."
 
     # Output tests
     # checking if facetting is occurring correctly using type
     assert (
-        type(boxplot(df, "Miles_per_Gallon", "Country_of_Origin", facet=True))
+        type(boxplot(df, "Miles_per_gallon", "Country_of_origin", facet=True))
         == alt.vegalite.v4.api.FacetChart
     ), "The output should be a faceted chart type"
     assert (
-        type(boxplot(df, "Miles_per_Gallon", "Country_of_Origin", facet=False))
+        type(boxplot(df, "Miles_per_gallon", "Country_of_origin", facet=False))
         == alt.vegalite.v4.api.Chart
     ), "The output should be an altair chart type"
 
     assert (
         boxplot(
-            df, "Miles_per_Gallon", "Country_of_Origin", facet=False
+            df, "Miles_per_Gallon", "Country_of_origin", facet=False
         ).encoding.x.shorthand
-        == "Miles_per_Gallon"
+        == "Miles_per_gallon"
     ), "x should be mapped to the x axis"
     assert (
         boxplot(
-            df, "Miles_per_Gallon", "Country_of_Origin", facet=False
+            df, "Miles_per_Gallon", "Country_of_origin", facet=False
         ).encoding.y.shorthand
-        == "Country_of_Origin"
+        == "Country_of_origin"
     ), "y should be mapped to the x axis"
