@@ -53,7 +53,7 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
 
     Example
     -------
-    >>> from magmaviz.magmaviz import scatterplot
+    >>> from magmaviz.scatterplot import scatterplot
     >>> from vega_datasets import data
     >>> scatterplot(data.iris(), "sepalLength", "sepalWidth", "species",
                     "Iris Sepal Length vs Sepal Width across Species",
