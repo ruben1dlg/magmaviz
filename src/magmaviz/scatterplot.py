@@ -43,7 +43,7 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
             Scale the y-axis to start from 0 by specifying True
             Default value is set to False
     shapes : boolean
-             Assigns the color column to shapes attribute of the plot if True
+             Assign the color column to the shape attribute of the plot if True
              Default value is set to True
 
     Returns
