@@ -131,7 +131,7 @@ def scatterplot(df, x, y, c="", t="", o=0.5, s=50, xtitle="", ytitle="", ctitle=
         ), "The column specified for 'color' does not exist in the dataframe."
 
     # check if opacity value is in the range 0.1 to 1.0
-    if o <= 0.1 or o > 1.0:
+    if o < 0.1 or o > 1.0:
         raise TypeError("Opacity value must be in the range [0.1, 1.0]")
 
     # check if size value is in the range 1 to 100
