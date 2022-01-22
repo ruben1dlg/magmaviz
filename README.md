@@ -44,7 +44,7 @@ Our package will build onto the existing features of 'Altair' using the magma co
 ## Installation
 
 ```bash
-$ pip install magmaviz
+$ pip install -i https://test.pypi.org/simple/ magmaviz
 ```
 
 ## Usage
