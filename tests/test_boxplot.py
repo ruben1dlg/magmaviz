@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from vega_datasets import data
 import re
+import pytest
 
 
 def toy_df():
@@ -48,7 +49,38 @@ def test_boxplot_input():
         )
 
 
-def test_boxplot_columns():
+def test_error_inputs_df():
+    """checking that the dataframe is a pandas dataframe type"""
+
+    df = toy_df()
+    with pytest.raises(TypeError):
+        boxplot("df", "Miles_per_gallon", "Country_of_origin", facet=False)
+
+
+def test_error_inputs_x():
+    """checking type error for wrong type of x column name"""
+    df = toy_df()
+    with pytest.raises(TypeError):
+        boxplot(df, ["Miles_per_gallon"], "Country_of_origin", facet=False)
+
+
+def test_error_inputs_y():
+    """checking type error for wrong type of  y column name"""
+
+    df = toy_df()
+    with pytest.raises(TypeError):
+        boxplot(df, "Miles_per_gallon", ["Country_of_origin"], facet=False)
+
+
+def test_error_inputs_facet():
+    """checking boolean error for faceting"""
+    df = toy_df()
+    with pytest.raises(TypeError):
+        boxplot(df, "Miles_per_gallon", "Country_of_origin", facet="False")
+
+
+def test_boxplot_columns_assert():
+    """checking assert statemetns for column name tests"""
 
     df = toy_df()
 
@@ -62,8 +94,8 @@ def test_boxplot_columns():
     ), "This column specified for 'y' does not exist in the dataframe."
 
 
-def test_boxplot_output_type():
-
+def test_boxplot_output_type_assert():
+    """checking output type with/without faceting"""
     df = toy_df()
 
     # Output tests
@@ -78,8 +110,8 @@ def test_boxplot_output_type():
     ), "The output should be an altair chart type"
 
 
-def test_boxplot_axis_mapping():
-
+def test_boxplot_axis_mapping_assert():
+    """Testing the mapping of column names to the axis"""
     df = toy_df()
 
     assert (
