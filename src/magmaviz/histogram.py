@@ -51,6 +51,28 @@ def histogram(df, x, y):
     return chart
 
 def validate(df, y):
+    """A helper function to validate input y
+
+    Parameters
+    ----------
+    df : dataframe
+        The input dataframe
+    y : string
+        The user specified aggregation function to be plotted on the y-axis.
+        The supported aggregation operations are: ['average', 'count',
+        'distinct', 'max', 'mean', 'median', 'min', 'missing', 'product',
+        'q1', 'q3', 'ci0', 'ci1', 'stderr', 'stdev', 'stdevp', 'sum', 
+        'valid', 'values', 'variance', 'variancep']
+
+    Returns
+    -------
+        This function only raises errors
+
+    Examples
+    --------
+    >>> validate(data.iris(), 'mean(petalLength)')
+    >>> validate(data.iris(), 'count()')
+    """
     supported_operations = ['average', 'count',
         'distinct', 'max', 'mean', 'median', 'min', 'missing', 'product',
         'q1', 'q3', 'ci0', 'ci1', 'stderr', 'stdev', 'stdevp', 'sum', 

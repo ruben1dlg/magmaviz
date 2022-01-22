@@ -14,5 +14,7 @@ from vega_datasets import data
 def test_histogram():
     """Unit tests for the histogram function"""
     example1 = histogram(data.iris(), "species", "median(sepalLength)")
-    assert example1.encoding.x.field == "species", 'x_axis should be mapped to the x axis'
-    assert example1.encoding.y.field == 'median(sepalLength)', 'y_axis should be mapped to the y axis'
+    assert example1.encoding.x.shorthand == "species", 'x_axis should be mapped to the x axis'
+    assert example1.encoding.y.shorthand == 'median(sepalLength)', 'y_axis should be mapped to the y axis'
+    assert example1.encoding.color.scale.scheme == 'magma', 'The color schema should be magma'
+
