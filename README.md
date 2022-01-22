@@ -2,9 +2,15 @@
 
 Exploratory Data Analysis is one of the key steps in a machine learning project. This package aims to make this process easy by providing python functions based on the 'Altair' package to plot four common types of plots with the magma color scheme. To maximize interpretability, the plots have defined color schemes (discrete, diverging, sequential) based on the kind of data they show.
 
-## Functions
+## Installation
 
-The four data visualization functions included in the package are outlined below:
+```bash
+$ pip install -i https://test.pypi.org/simple/ magmaviz
+```
+
+## Usage
+
+This package defines four data visualization functions, all with a magma color scheme. They are meant to be used in any data analysis projects.
 
 ### Boxplot
 
@@ -41,15 +47,6 @@ Our package will build onto the existing features of 'Altair' using the magma co
 - [deneb](https://pypi.org/project/deneb/) (Altair) - uses the same base as this package
 - [spartan-viz](https://pypi.org/project/spartan-viz/) (Matplotlib) - same philosophy as this package: focus on good use of color
 
-## Installation
-
-```bash
-$ pip install -i https://test.pypi.org/simple/ magmaviz
-```
-
-## Usage
-
-- This section will be updated as progress is made.
 
 ## Contributing
 
