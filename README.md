@@ -46,7 +46,7 @@ The primary contributors to this package are:
 1. Abdul Moid Mohammed
 2. Mukund Iyer
 3. Irene Yan
-4. Rubén De la Garza Macías
+4. Rubén De la Garza Macía
 
 We welcome new ideas and contributions. Please refer to the contributing guidelines in the CONTRIBUTING.MD file. Do note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
