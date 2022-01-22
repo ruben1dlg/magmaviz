@@ -46,7 +46,7 @@ def histogram(df, x, y):
     chart = alt.Chart(df).mark_bar().encode(
         x=x,
         y=y,
-        color = alt.Color(scale=alt.Scale(scheme="magma"))
+        color=alt.Color(y, scale=alt.Scale(scheme="magma"))
     )
     return chart
 
