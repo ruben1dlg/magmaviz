@@ -31,6 +31,10 @@ def boxplot(df, x, y, facet=False):
     """
 
     # checking that type of column name for x is a string
+    if not isinstance(df, pd.core.frame.DataFrame):
+        raise TypeError(
+            "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
+        )
     if not isinstance(x, str):
         raise TypeError("'x' should be of type 'str'.")
     # checking that type of column name for y is a string
@@ -40,10 +44,6 @@ def boxplot(df, x, y, facet=False):
     if not isinstance(facet, bool):
         raise TypeError("'facet' should be of type 'boolean'.")
     # checking that the dataframe is a pandas dataframe type
-    if not isinstance(df, pd.core.frame.DataFrame):
-        raise TypeError(
-            "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
-        )
 
     # checking if x is a column name in the dataframe
     assert x in list(
