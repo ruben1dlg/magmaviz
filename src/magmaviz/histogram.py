@@ -24,7 +24,7 @@ def histogram(df, x, y):
 
     Examples
     --------
-    >>> from magmaviz.magmaviz import histogram
+    >>> from magmaviz.histogram import histogram
     >>> histogram(mtcars, "cars", "count()")
     """
     # check if the type of df is a pandas DataFrame
