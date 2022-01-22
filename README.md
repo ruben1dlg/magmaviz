@@ -8,7 +8,7 @@ The four data visualization functions included in the package are outlined below
 
 ### Boxplot
 
-Returns a boxplot based on the data frame, a numerical feature to view the distribution of and a categorical feature to bucket data into categories. Additionally, there is a boolean option to facet the boxplots into separate charts.
+Returns a boxplot based on a data frame, a numerical feature to view the distribution of and a categorical feature to bucket data into categories. Additionally, there is a boolean option to facet the boxplots into separate charts.
 
 ### Correlation Plot
 
@@ -16,11 +16,23 @@ Returns a correlation plot based on the numerical features present in the data f
 
 ### Histogram
 
-Returns a histogram based on the data frame and a categorical feature to plot on the x-axis. The y-axis will display the count of records.
+Returns a histogram based on the data frame and a categorical feature to plot on the x-axis. The y-axis will display the result of some of the following aggregating functions:
+- Average
+- Count
+- Distinct
+- Max
+- Min
+- Median
+- Mean
+- Among others (listed in documentation for the function).
 
 ### Scatterplot
 
-Returns a scatterplot based on the data frame and two numerical feature names passed as the required inputs. An auxiliary input provides the flexibility to color-code the data points based on a categorical feature.
+Returns a scatterplot based on the data frame and two numerical feature names passed as the required inputs. There are auxiliary inputs that provide the flexibility to:
+- Color code or change the shape of the data points on a categorical variable
+- Set a title to the plot, x-axis, y-axis and color legend
+- Change the opacity and size of the data points
+- Set the scale of the x-axis and y-axis to start from zero
 
 ### Fit within the Python ecosystem
 
