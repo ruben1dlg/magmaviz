@@ -10,7 +10,7 @@ $ pip install -i https://test.pypi.org/simple/ magmaviz
 
 ## Usage
 
-This package defines four data visualization functions, all with a magma color scheme. They are meant to be used in any data analysis projects.
+This package defines four data visualization functions, all with a magma color scheme. They are meant to be used in any data analysis projects using Python. 
 
 ### Boxplot
 
@@ -39,6 +39,12 @@ Returns a scatterplot based on the data frame and two numerical feature names pa
 - Set a title to the plot, x-axis, y-axis and color legend
 - Change the opacity and size of the data points
 - Set the scale of the x-axis and y-axis to start from zero
+
+One example of importing these functions is shown here:
+```python
+from magmaviz.boxplot import boxplot
+boxplot(df, x, y, facet=False)
+```
 
 ### Fit within the Python ecosystem
 
