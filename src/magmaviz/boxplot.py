@@ -1,4 +1,7 @@
 import altair as alt
+import pandas as pd
+import numpy as np
+from vega_datasets import data
 import re
 
 
@@ -27,6 +30,11 @@ def boxplot(df, x, y, facet=False):
     >>> boxplot(cars, "Miles_per_Gallon", "Origin", facet=True)
     """
 
+    # checking that the dataframe is a pandas dataframe type
+    if not isinstance(df, pd.core.frame.DataFrame):
+        raise TypeError(
+            "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
+        )
     # checking that type of column name for x is a string
     if not isinstance(x, str):
         raise TypeError("'x' should be of type 'str'.")
@@ -36,11 +44,6 @@ def boxplot(df, x, y, facet=False):
     # checking that type for facet is a boolean
     if not isinstance(facet, bool):
         raise TypeError("'facet' should be of type 'boolean'.")
-    # checking that the dataframe is a pandas dataframe type
-    if not isinstance(df, pd.core.frame.DataFrame):
-        raise TypeError(
-            "'df' should be of type 'pandas.core.frame.DataFrame', a pandas dataframe."
-        )
 
     # checking if x is a column name in the dataframe
     assert x in list(
@@ -71,5 +74,6 @@ def boxplot(df, x, y, facet=False):
 
     if facet == True:
         return plot.facet(row=y)
+
     else:
         return plot
