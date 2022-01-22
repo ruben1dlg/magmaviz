@@ -16,9 +16,19 @@ This package defines four data visualization functions, all with a magma color s
 
 Returns a boxplot based on a data frame, a numerical feature to view the distribution of and a categorical feature to bucket data into categories. Additionally, there is a boolean option to facet the boxplots into separate charts.
 
+```python
+from magmaviz.boxplot import boxplot
+boxplot(df, x, y, facet=False)
+```
+
 ### Correlation Plot
 
 Returns a correlation plot based on the numerical features present in the data frame. While the default plot would use circle shapes, an auxiliary input provides the flexibility to switch to square shapes. Additionally, it will print the correlated numerical feature pairs along with their correlation values.
+
+```python
+from magmaviz.corrplot import corrplot
+corrplot(df, print_corr=True, shape="square")
+```
 
 ### Histogram
 
@@ -32,6 +42,11 @@ Returns a histogram based on the data frame and a categorical feature to plot on
 - Mean
 - Among others (listed in documentation for the function).
 
+```python
+from magmaviz.histogram import histogram
+histogram(mtcars, "cars", "count()")
+```
+
 ### Scatterplot
 
 Returns a scatterplot based on the data frame and two numerical feature names passed as the required inputs. There are auxiliary inputs that provide the flexibility to:
@@ -40,10 +55,9 @@ Returns a scatterplot based on the data frame and two numerical feature names pa
 - Change the opacity and size of the data points
 - Set the scale of the x-axis and y-axis to start from zero
 
-One example of importing these functions is shown here:
 ```python
-from magmaviz.boxplot import boxplot
-boxplot(df, x, y, facet=False)
+from magmaviz.scatterplot import scatterplot
+scatterplot(df, x, y, c="", t="", o=1.0, s=50, xtitle="", ytitle="", ctitle="", xzero=False, yzero=False, shapes=True)
 ```
 
 ### Fit within the Python ecosystem
