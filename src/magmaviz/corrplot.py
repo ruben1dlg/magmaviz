@@ -15,7 +15,7 @@ def corrplot(df, print_corr=True, shape="circle"):
     shape : string
         Determines the shape to use in the graph to represent
         the value of the correlation. Its possible values 
-        are "circle" and "square".
+        are "circle" and "square"
 
     Returns
     -------
