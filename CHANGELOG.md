@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2022-01-27)
+
+
 ## v0.2.0 (2022-01-27)
 ### Feature
 * Added new tests to check shapes = true branch ([`be7ab3e`](https://github.com/UBC-MDS/magmaviz/commit/be7ab3e459286d676349937475d61b590c614b52))
