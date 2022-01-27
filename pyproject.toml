@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "magmaviz"
-version = "0.2.1"
-description = "CThis package contains four different data visualization functions with the magma theme for EDA."
-authors = ["Mukund Iyer"]
+version = "0.1.0"
+description = "This package contains four different data visualization functions with the magma theme for EDA."
+authors = ["Abdul Moid Mohammed, Mukund Iyer, Irene Yan, Rubén De la Garza Macías"]
 license = "MIT"
 readme = "README.md"
 
@@ -22,3 +22,12 @@ sphinx-rtd-theme = "^1.0.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version" # version location
+branch = "main"                             # branch to make releases of
+build_command = "pip install poetry && poetry build"  # build dists
+dist_path = "dist/"                         # where to put dists
+upload_to_pypi = false                      # don't auto-upload to PyPI
+remove_dist = false                         # don't remove dists
+patch_without_tag = "true"                  # always bump version on CD, even without angular commit (default is patch)
