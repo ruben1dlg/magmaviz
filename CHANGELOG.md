@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2022-01-29)
+### Feature
+* Small changes to code ([`a7f8299`](https://github.com/UBC-MDS/magmaviz/commit/a7f82997c9af8ff2d736558af67da45d5d8b0f09))
+
+### Documentation
+* Added badge to Readthedocs ([`5c1fb3e`](https://github.com/UBC-MDS/magmaviz/commit/5c1fb3e01316349248b8e0d2c733e0de893fc4f4))
+* Add dependencies for docs and rendered html ([`ff2bb56`](https://github.com/UBC-MDS/magmaviz/commit/ff2bb56b8732aa0bf7d9b53809431ef46f4ffb2d))
+
 ## v0.2.4 (2022-01-27)
 
 
