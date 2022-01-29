@@ -74,7 +74,7 @@ def test_corrplot_chart_columns_are_numeric():
     numeric_cols = plot.data["Variable1"].unique().tolist()
     mysum = 0
     for col in numeric_cols:
-        if df[col].dtype == 'float' or df[col].dtype == 'int':
+        if df[col].dtype == 'float' or df[col].dtype == 'int' or df[col].dtype == 'float64' or df[col].dtype == 'int64':
             mysum += 1
 
     assert len(numeric_cols) == mysum, "There are columns used in the chart that are not numeric"  
