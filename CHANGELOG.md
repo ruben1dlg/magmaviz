@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.4 (2022-01-29)
+### Documentation
+* Add readme with buttons ([`fc5884e`](https://github.com/UBC-MDS/magmaviz/commit/fc5884eb7838af07e45a4bc1d4a9b878488527c3))
+
 ## v0.3.3 (2022-01-29)
 
 
