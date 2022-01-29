@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2022-01-29)
+
+
 ## v0.3.0 (2022-01-29)
 ### Feature
 * Small changes to code ([`a7f8299`](https://github.com/UBC-MDS/magmaviz/commit/a7f82997c9af8ff2d736558af67da45d5d8b0f09))
