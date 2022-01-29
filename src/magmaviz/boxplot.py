@@ -1,7 +1,6 @@
 import altair as alt
 import pandas as pd
 import numpy as np
-from vega_datasets import data
 import re
 
 
@@ -66,14 +65,13 @@ def boxplot(df, x, y, facet=False):
         .encode(
             x=alt.X(x, title=x_title),
             y=alt.Y(y, title=y_title),
-            color=alt.Color(y, scale=alt.Scale(scheme="magma")),
+            color=alt.Color(y, scale=alt.Scale(scheme="magma"), legend=None),
         )
     )
 
     # facet if required
-
     if facet == True:
-        return plot.facet(row=y)
+        return plot.encode(x=alt.X(x, title=None), y=alt.Y(y, title=None)).facet(row=y)
 
     else:
         return plot
