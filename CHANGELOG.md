@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.4 (2022-01-29)
+### Documentation
+* Add readme with buttons ([`fc5884e`](https://github.com/UBC-MDS/magmaviz/commit/fc5884eb7838af07e45a4bc1d4a9b878488527c3))
+
+## v0.3.3 (2022-01-29)
+
+
 ## v0.3.2 (2022-01-29)
 ### Documentation
 * Add badge for ci-cd ([`e82a4f2`](https://github.com/UBC-MDS/magmaviz/commit/e82a4f2512cb326f28e91682557e9d97461856be))

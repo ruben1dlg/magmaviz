@@ -1,6 +1,8 @@
 # magmaviz
 
-![example workflow](https://github.com/UBC-MDS/magmaviz/actions/workflows/ci-cd.yml/badge.svg)
+[![ci-cd](https://github.com/UBC-MDS/magmaviz/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/magmaviz/actions/workflows/ci-cd.yml)
+[![codecov](https://codecov.io/gh/UBC-MDS/magmaviz/branch/master/graph/badge.svg?token=x4djzZhNFV)](https://codecov.io/gh/UBC-MDS/magmaviz)
+[![Documentation Status](https://readthedocs.org/projects/magmaviz/badge/?version=latest)](https://magmaviz.readthedocs.io/en/latest/?badge=latest)
 
 Exploratory Data Analysis is one of the key steps in a machine learning project. This package aims to make this process easy by providing python functions based on the 'Altair' package to plot four common types of plots with the magma color scheme. To maximize interpretability, the plots have defined color schemes (discrete, diverging, sequential) based on the kind of data they show.
 
