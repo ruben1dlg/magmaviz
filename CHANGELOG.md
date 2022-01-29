@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.3 (2022-01-29)
+
+
 ## v0.3.2 (2022-01-29)
 ### Documentation
 * Add badge for ci-cd ([`e82a4f2`](https://github.com/UBC-MDS/magmaviz/commit/e82a4f2512cb326f28e91682557e9d97461856be))
