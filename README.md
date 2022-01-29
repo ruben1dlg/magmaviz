@@ -8,7 +8,12 @@ Exploratory Data Analysis is one of the key steps in a machine learning project.
 $ pip install -i https://test.pypi.org/simple/ magmaviz
 ```
 
-## Usage
+## Usage 
+
+The interactive version of the usage section can be found here: 
+
+[![Documentation Status](https://readthedocs.org/projects/magmaviz/badge/?version=latest)](https://magmaviz.readthedocs.io/en/latest/?badge=latest)
+
 
 This package defines four data visualization functions, all with a magma color scheme. They are meant to be used in any data analysis projects using Python. 
 
