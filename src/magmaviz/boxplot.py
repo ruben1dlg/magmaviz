@@ -1,10 +1,9 @@
 import altair as alt
 import pandas as pd
-import numpy as np
 import re
 
 
-def boxplot(df, x, y, facet=False):
+def boxplot(df, x, y, facet_col=""):
     """Plot a boxplot with the magma color scheme and an option to facet.
 
     Parameters
@@ -15,7 +14,7 @@ def boxplot(df, x, y, facet=False):
         Column name of the numerical variable to view the distribution of
     y : list
         Column name containing the categorical variables to assign boxes to
-    facet : boolean
+    facet_col : column to use for faceting
         Determines whether separate graphs will be created for each category
 
     Returns
@@ -26,7 +25,7 @@ def boxplot(df, x, y, facet=False):
     Examples
     --------
     >>> from magmaviz.magmaviz import boxplot
-    >>> boxplot(cars, "Miles_per_Gallon", "Origin", facet=True)
+    >>> boxplot(cars, "Miles_per_Gallon", "Origin", facet_col="Engine")
     """
 
     # checking that the dataframe is a pandas dataframe type
@@ -41,8 +40,8 @@ def boxplot(df, x, y, facet=False):
     if not isinstance(y, str):
         raise TypeError("'y' should be of type 'str'.")
     # checking that type for facet is a boolean
-    if not isinstance(facet, bool):
-        raise TypeError("'facet' should be of type 'boolean'.")
+    if not isinstance(facet_col, str):
+        raise TypeError("'facet_col' should be of type 'string'.")
 
     # checking if x is a column name in the dataframe
     assert x in list(
@@ -52,6 +51,12 @@ def boxplot(df, x, y, facet=False):
     assert y in list(
         df.columns
     ), "This column specified for 'y' does not exist in the dataframe."
+    # checking if facet_col is a column name in the dataframe
+
+    if len(facet_col) > 0:
+        assert facet_col in list(
+            df.columns
+        ), "This column specified for 'facet_col' does not exist in the dataframe."
 
     # creating titles
     x_title = re.sub(r"[_.,-]", " ", x)
@@ -70,8 +75,10 @@ def boxplot(df, x, y, facet=False):
     )
 
     # facet if required
-    if facet == True:
-        return plot.encode(x=alt.X(x, title=None), y=alt.Y(y, title=None)).facet(row=y)
+    if len(facet_col) > 0:
+        return plot.encode(x=alt.X(x, title=None), y=alt.Y(y, title=None)).facet(
+            row=facet_col
+        )
 
     else:
         return plot
