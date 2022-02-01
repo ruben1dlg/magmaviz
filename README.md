@@ -9,7 +9,7 @@ Exploratory Data Analysis is one of the key steps in a machine learning project.
 ## Installation
 
 ```bash
-$ pip install -i https://test.pypi.org/simple/ magmaviz
+$ pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple magmaviz
 ```
 
 ## Usage 
