@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2022-02-02)
+### Feature
+* Changed usage, label options for facetting ([`3862b09`](https://github.com/UBC-MDS/magmaviz/commit/3862b0954f692f99ed9cf6a3744ae0e9080bdd84))
+* Changed facet option in function ([`8e41577`](https://github.com/UBC-MDS/magmaviz/commit/8e415772866a776dcc4f78686ddde906ae346ff6))
+
 ## v0.3.8 (2022-02-01)
 
 
