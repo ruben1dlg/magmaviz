@@ -25,7 +25,8 @@ def boxplot(df, x, y, facet_col=""):
     Examples
     --------
     >>> from magmaviz.magmaviz import boxplot
-    >>> boxplot(cars, "Miles_per_Gallon", "Origin", facet_col="Engine")
+    >>> from vega_datasets import data
+    >>> boxplot(data.cars(), "Miles_per_Gallon", "Origin", facet_col="Cylinders")
     """
 
     # checking that the dataframe is a pandas dataframe type
@@ -76,9 +77,7 @@ def boxplot(df, x, y, facet_col=""):
 
     # facet if required
     if len(facet_col) > 0:
-        return plot.encode(x=alt.X(x, title=None), y=alt.Y(y, title=None)).facet(
-            row=facet_col
-        )
+        return plot.facet(row=facet_col)
 
     else:
         return plot
