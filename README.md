@@ -27,7 +27,7 @@ Returns a boxplot based on a data frame, a numerical feature to view the distrib
 
 ```python
 from magmaviz.boxplot import boxplot
-boxplot(df, x, y, facet=False)
+boxplot(cars, 'Miles_per_Gallon', 'Origin', facet='Cylinders')
 ```
 
 ### Correlation Plot
