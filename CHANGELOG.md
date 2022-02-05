@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.3 (2022-02-05)
+### Documentation
+* Update to names in license ([`01402ca`](https://github.com/UBC-MDS/magmaviz/commit/01402ca5ecbcd4d8cd7b86878f043481a14cbcce))
+
 ## v0.4.2 (2022-02-05)
 
 

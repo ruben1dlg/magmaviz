@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "magmaviz"
-version = "0.4.2"
+version = "0.4.3"
 description = "This package contains four different data visualization functions with the magma theme for EDA."
 authors = ["Abdul Moid Mohammed, Mukund Iyer, Irene Yan, Rubén De la Garza Macías"]
 license = "MIT"
